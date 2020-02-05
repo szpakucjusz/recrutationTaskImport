@@ -1,6 +1,8 @@
 <?php
 namespace App\Providers;
 
+use App\Repositories\Contracts\CityRepositoryInterface;
+use App\Repositories\Contracts\JobOfferRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -12,8 +14,11 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-//        $this->app->bind(UserRepositoryInterface::class, function ($app, $params) {
-//            return new \App\Repositories\UserRepository;
-//        });
+        $this->app->bind(JobOfferRepositoryInterface::class, function ($app, $params) {
+            return new \App\Repositories\JobOfferRepository();
+        });
+        $this->app->bind(CityRepositoryInterface::class, function ($app, $params) {
+            return new \App\Repositories\CityRepository();
+        });
     }
 }

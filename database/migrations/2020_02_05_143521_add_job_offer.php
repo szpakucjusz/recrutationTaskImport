@@ -17,8 +17,6 @@ class AddJobOffer extends Migration
         Schema::create(JobOffer::TABLE_NAME, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->string('email')->unique();
-            $table->rememberToken();
             $table->timestamps();
         });
     }

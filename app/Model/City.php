@@ -8,6 +8,8 @@ class City extends Model
     public const TABLE_NAME = 'city';
     protected $table = self::TABLE_NAME;
 
+    protected $fillable = ['name'];
+
     public function JobOffers()
     {
         return $this->belongsToMany('App\Model\JobOffer', PivotJobOfferToCity::TABLE_NAME, 'city_id', 'job_offer_id');
