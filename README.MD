@@ -22,6 +22,7 @@ What could I do in another way:
 But serious:
 1. I could implement project in docker containers
 2. I could set url for import in .env or new file in directory config.
+3. Add tests for mocking API
 
 What I tried to implement:
 - Contracts,
