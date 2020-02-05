@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Model\JobOffer;
 use App\Model\Post;
 use App\Repositories\Contracts\ImportJobOffersInterface;
 use Illuminate\Support\Facades\DB;
@@ -22,7 +23,24 @@ class ImportController extends Controller
 
     public function index()
     {
-        $this->importJobOffers->import();
+        // non-good-code only for viewing purposes. Good code is in App\Console\Commands\ImportJobOffers
+        print_r("<pre>");
+        print_r('Brzydkie Wyświetlanie tylko dla celów sprawdzenia czy się zaimportowało.');
+        print_r("</pre>");
+        $jobOffers = JobOffer::with('cities')->get();
+        foreach ($jobOffers as $jobOffer) {
+            print_r("<pre>");
+            print_r('Tytuł oferty: ' . $jobOffer->title);
+            print_r("</pre>");
+            print_r("<pre>");
+            print_r('miasta, których dotyczy oferta:');
+            print_r("</pre>");
+            foreach ($jobOffer->cities as $city) {
+                print_r("<pre>");
+                print_r($city->name . ', ');
+                print_r("</pre>");
+            }
+        }
         return view('welcome');
     }
 
