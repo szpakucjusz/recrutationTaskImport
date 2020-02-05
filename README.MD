@@ -18,7 +18,7 @@ Where to check code:
 1. app/Console/Commands/ImportJobOffers.php
 2. app/Services/ImportJobOffersJson.php
 
-What could I do in another way:
+What could I do more or in another way:
 But serious:
 1. I could implement project in docker containers
 2. I could set url for import in .env or new file in directory config.
